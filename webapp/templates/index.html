@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atenta's Flask Website</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🚀 Welcome to My Flask Web App</h1>
+        <p class="fade-in">This is a basic Flask web application by <strong>Khenneth Andrae V. Atenta</strong>.</p>
+        <button class="animated-btn" onclick="displayMessage()">Click Here</button>
+    </div>
+
+    <footer>
+        <p>© 2024 Khenneth Andrae V. Atenta | Built with Flask ❤️</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+<button class="toggle-btn" onclick="toggleMode()">🌙 Toggle Mode</button>
+
+
+
+</body>
+</html>

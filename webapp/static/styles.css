@@ -1,0 +1,143 @@
+/* Default (Dark Mode) */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s, color 0.5s;
+}
+
+/* Light Mode */
+body.light-mode {
+    background: linear-gradient(135deg, #f3f3f3, #ffffff);
+    color: black;
+}
+
+/* Container */
+.container {
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    transition: background 0.5s;
+}
+
+/* Light Mode Container */
+body.light-mode .container {
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Animation */
+h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Button */
+/* Button Hover Effect */
+.animated-btn {
+    background: #ff6b6b;
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect - Glowing and Scale */
+.animated-btn:hover {
+    background: #ff4757;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255, 99, 71, 0.8);
+}
+
+/* Light Mode Button Hover */
+body.light-mode .animated-btn:hover {
+    background: #222;
+    transform: scale(1.1);
+}
+
+/* 🔥 Dragon Animation */
+.animated-btn::before {
+    content: "🐉"; /* Dragon emoji */
+    font-size: 24px;
+    position: absolute;
+    top: 50%;
+    left: -30px;
+    transform: translateY(-50%);
+    animation: circleDragon 2s infinite linear;
+}
+
+/* Dragon Circling Animation */
+@keyframes circleDragon {
+    0% {
+        left: -30px;
+        top: 50%;
+    }
+    25% {
+        left: 50%;
+        top: -20px;
+        transform: rotate(90deg);
+    }
+    50% {
+        left: calc(100% + 10px);
+        top: 50%;
+        transform: rotate(180deg);
+    }
+    75% {
+        left: 50%;
+        top: calc(100% + 10px);
+        transform: rotate(270deg);
+    }
+    100% {
+        left: -30px;
+        top: 50%;
+        transform: rotate(360deg);
+    }
+}
+
+}
+
+/* Light Mode Button */
+body.light-mode .animated-btn {
+    background: #333;
+    color: white;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.5s;
+}
+
+/* Light Mode Toggle Button */
+body.light-mode .toggle-btn {
+    background: #fff;
+    color: black;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
