@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Customer Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" id="report-header">
+        <h1 id="report-title">Company CRM Report</h1>
+        <p id="report-generated-date">Generated on: {{ now }}</p>
+    </div>
+
+    <table id="table-customer-report">
+        <thead>
+            <tr>
+                <th id="th-id">ID</th>
+                <th id="th-name">Name</th>
+                <th id="th-email">Email</th>
+                <th id="th-phone">Phone</th>
+                <th id="th-company">Company</th>
+                <th id="th-date-added">Date Added</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customers %}
+            <tr id="report-row-{{ customer.id }}">
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.name }}</td>
+                <td>{{ customer.email }}</td>
+                <td>{{ customer.phone }}</td>
+                <td>{{ customer.company }}</td>
+                <td>{{ customer.date_added.strftime('%Y-%m-%d') }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

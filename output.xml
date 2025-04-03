@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.9 on win32)" generated="2025-04-03T19:36:11.079471" rpa="false" schemaversion="5">
+<suite id="s1" name="Katenta" source="C:\Users\My PC\PycharmProjects\katenta">
+<suite id="s1-s1" name="Test" source="C:\Users\My PC\PycharmProjects\katenta\test">
+<suite id="s1-s1-s1" name="Api" source="C:\Users\My PC\PycharmProjects\katenta\test\api">
+<suite id="s1-s1-s1-s1" name="Crm Api" source="C:\Users\My PC\PycharmProjects\katenta\test\api\crm_api.robot">
+<kw name="User successfully logs in" type="SETUP">
+<kw name="Given The API is available" owner="crm_keywords">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">Creating Session using : alias=crm, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>crm</arg>
+<arg>${BASE_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="And The database is cleaned" owner="crm_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">Cleaning database before test run</msg>
+<arg>Cleaning database before test run</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="When The user is created" owner="crm_keywords">
+<kw name="User Name" owner="FakerLibrary">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">${username} = carrillomegan</msg>
+<var>${username}</var>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="Password" owner="FakerLibrary">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">${password} = m(ISXVWh$4</msg>
+<var>${password}</var>
+<doc>Generate a random password of the specified ``length``.</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">${TEST_USERNAME} = carrillomegan</msg>
+<arg>${TEST_USERNAME}</arg>
+<arg>${username}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">${TEST_PASSWORD} = m(ISXVWh$4</msg>
+<arg>${TEST_PASSWORD}</arg>
+<arg>${password}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-04-03T19:36:12.241970" level="INFO">${data} = {'username': 'carrillomegan', 'password': 'm(ISXVWh$4'}</msg>
+<var>${data}</var>
+<arg>username=${username}</arg>
+<arg>password=${password}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-04-03T19:36:12.241970" elapsed="0.000000"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2025-04-03T19:36:14.305200" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5ED0B90&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+<msg time="2025-04-03T19:36:16.559765" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5E93440&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+<msg time="2025-04-03T19:36:19.005115" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5E92870&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+<msg time="2025-04-03T19:36:21.055560" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<var>${response}</var>
+<arg>crm</arg>
+<arg>${REGISTER_ENDPOINT}</arg>
+<arg>data=${data}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2025-04-03T19:36:12.241970" elapsed="8.819625">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Test user created successfully</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-04-03T19:36:21.061595" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-03T19:36:12.241970" elapsed="8.819625">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<kw name="Then The user logs in with valid credentials" owner="crm_keywords">
+<status status="NOT RUN" start="2025-04-03T19:36:21.061595" elapsed="0.000000"/>
+</kw>
+<kw name="And The response status code should be 200" owner="crm_keywords">
+<status status="NOT RUN" start="2025-04-03T19:36:21.061595" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2025-04-03T19:36:12.241970" elapsed="8.819625">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</kw>
+<test id="s1-s1-s1-s1-t1" name="Scenario: Add a new customer" line="29">
+<status status="FAIL" start="2025-04-03T19:36:21.061595" elapsed="0.000000">Parent suite setup failed:
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s1-s1-s1-t2" name="Scenario: Add a new order" line="46">
+<status status="FAIL" start="2025-04-03T19:36:21.061595" elapsed="0.000000">Parent suite setup failed:
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s1-s1-s1-t3" name="Scenario: Export customers as CSV" line="65">
+<status status="FAIL" start="2025-04-03T19:36:21.067683" elapsed="0.002009">Parent suite setup failed:
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<test id="s1-s1-s1-s1-t4" name="Scenario: Export customers as PDF" line="71">
+<status status="FAIL" start="2025-04-03T19:36:21.070699" elapsed="0.000000">Parent suite setup failed:
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<doc>API Tests for CRM Web App using Robot Framework with Faker</doc>
+<status status="FAIL" start="2025-04-03T19:36:11.131469" elapsed="9.939230">Suite setup failed:
+ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /register (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5EBBC50&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</suite>
+<status status="FAIL" start="2025-04-03T19:36:11.131469" elapsed="9.944550"/>
+</suite>
+<status status="FAIL" start="2025-04-03T19:36:11.131469" elapsed="9.944550"/>
+</suite>
+<status status="FAIL" start="2025-04-03T19:36:11.093929" elapsed="9.982090"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="4" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Katenta" id="s1" pass="0" fail="4" skip="0">Katenta</stat>
+<stat name="Test" id="s1-s1" pass="0" fail="4" skip="0">Katenta.Test</stat>
+<stat name="Api" id="s1-s1-s1" pass="0" fail="4" skip="0">Katenta.Test.Api</stat>
+<stat name="Crm Api" id="s1-s1-s1-s1" pass="0" fail="4" skip="0">Katenta.Test.Api.Crm Api</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-04-03T19:36:14.305200" level="WARN">Retrying (RetryAdapter(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5ED0B90&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+<msg time="2025-04-03T19:36:16.559765" level="WARN">Retrying (RetryAdapter(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5E93440&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+<msg time="2025-04-03T19:36:19.005115" level="WARN">Retrying (RetryAdapter(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x000001BBB5E92870&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /register</msg>
+</errors>
+</robot>
